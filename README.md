@@ -11,7 +11,7 @@ We started from the principle that we can know the exact position of every door 
 #### Train detection without ML
 Details of implementation and position estimation from this image in the jupyter notebook 'Train and rail detection'.
 
-![Image differece](/images/Intermediary\ steps/image_difference.png)
+<img title="Image difference" alt="Image difference" src="/images/Intermediary\ steps/image_difference.png">
 
 
 ## Advantages
