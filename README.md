@@ -26,6 +26,12 @@ Passanger is taking his train in lausanne, going to Allaman. The S4 24438 of mod
 Train will stop on the platform 5 and his position in relation to the platform is 1.77
 Having a S class train, doors are at positions a, b, and c of the ram
 ```
+
+#### Text-to-Speech application
+Details of implementation can be found in the voice.py file
+This small application tells the user via read aloud digital text where he or she has to go once the following informations where given: the list of doors and their coordinates, the original position of the user and his or her orientation (angle wrt the train) and wagon where he or she has to go. The application works as follows: first give the right orientation to the person, then conduct him of her to the white bands near the train, and after that follow the train to the right door. Everything is guided via voice. 
+This application was done using the gtts package in python.
+
 ## Advantages
 Thanks to this solution we can also guide precisely the person to the right car, corresponding to the ticket he/she bought (first/second class). This can also be used for trains with assigned cars and seats so our solution is very modular and can solve other problems too. It will also be easier to use this since the person won’t have to hold the phone in his/her hands to scan in front of him/her and try to find the door, with a cane and/or a guide dog in the other hand. The phone could simply be in the person’s pocket and the speaker would guide him/her. Moreover, holding the camera in the person's hand will be less efficient since many people can be waiting for the same train, and the person could not be able to scan the button since everyone would be blocking the view and the algorithm.
 
