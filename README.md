@@ -11,10 +11,7 @@ We started from the principle that we can know the exact position of every door 
 #### Train detection without ML
 Details of implementation and position estimation from this image in the jupyter notebook 'Train and rail detection'.
 
-![img_diff](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/Intermediary%20steps/image_difference.png)
-![noise_cleaning](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/Intermediary%20steps/noise_cleaning.png)
-![connected_component](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/Intermediary%20steps/connected_component.png)
-![bouding_box](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/Intermediary%20steps/bounding_box_and_line.png)
+![steps](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/steps.png)
 
 
 ## Advantages
