@@ -8,6 +8,10 @@ We chose the challenge proposed by SBB, consisting of helping blind people to fi
 ## What it does
 We started from the principle that we can know the exact position of every door on a train if we know the model of the train and its exact position on the platform. The first part can easily be retrieved thanks to the SBB API and documentation. For its position relative to the platform it is a bit more difficult (since we know that the train driver doesn’t have a very precise spot to stop on the platform), and we came up with two ideas. First, we chose to use computer vision (thanks to security cameras / a dedicated camera per platform) to detect the train and find its exact location. The second solution implies bluetooth beacons placed on the platform (which is possible after talking with SBB sponsors). We would place a beacon also on the train (at the beginning or the end of the train)(making sure it’s “outside” as the train acts as a Faraday cage, the electromagnetic waves would be trapped inside otherwise) and will be able to triangulate the beacon, and since it would be placed on a fixed point on the train we would immediately have the exact location of the train. The next step is now to locate the user on the platform. We will now use the same bluetooth beacons placed at equal distance on the platform to triangulate the person. Using this technology it is also possible to find the direction the phone is pointing by analysing the angle of arrival of the signal so it will greatly help us guiding the person to the door, hence to the door button. To guide the person to the door button, we will simply use SpeechSynthesis, an API that will allow us to vocalize the instructions to the person, and which is compatible with both iOS and Android.
 
+#### Modules
+We split the project into different modules as can be seen in the following diagram.
+![diagram](https://github.com/D3m0t3p/lauzhack-2020/blob/main/Project%20architecture/Project%20architecture.jpg)
+
 #### Train detection without ML
 Details of implementation and position estimation from this image in the jupyter notebook 'Train and rail detection'.
 
