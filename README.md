@@ -19,7 +19,7 @@ Details of implementation and position estimation from this image in the jupyter
 
 #### SBB API query
 Details of implementation and http query can be found in the sbb_api_query_next_train.py file.
-The POC is as follow, we find the next departing train in lausanne gare, and we identify the train type unfortunately the api doesn't give the plans for a given train type. After speaking with the sbb staff they have this info but it's not public yet so it will work with extra info from SBB.
+The POC is as follows : we find the next departing train in lausanne gare, and we identify the train type unfortunately the api doesn't give the plans for a given train type. After speaking with the sbb staff they have this info but it's not public yet so it will work with extra info from SBB.
 exemple output : 
 ```code
 Passanger is taking his train in lausanne, going to Allaman. The S4 24438 of model S. 
