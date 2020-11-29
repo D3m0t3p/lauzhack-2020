@@ -17,6 +17,10 @@ Details of implementation and position estimation from this image in the jupyter
 
 ![steps](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/steps.png)
 
+### Bluetooth triangulation
+Bluetooth triangulation explained : https://www.inpact-hardware.com/article/1087/bluetooth-5-1-radiogoniometrie-pour-mesurer-direction-signal-et-ameliorer-geolocalisation
+Moreover, since Covid-19, this technology evolved a lot and thanks to triangulation and trilateration we can estimate with centimeter precision the position of a device. However we couldn't get our hands on specified hardware, but after talking with SBB staff we were told that Bluetooth beacons were maybe going to be placed on the platforms soon. Since the beacons are emitting (same concept as GPS), the beacons won't have information about the user's location since the calculations will be made on the user's device. This is more privacy-friendly, with respect to the rest of our solution.
+
 #### SBB API query
 Details of implementation and http query can be found in the sbb_api_query_next_train.py file.
 The POC is as follow, we find the next departing train in lausanne gare, and we identify the train type unfortunately the api doesn't give the plans for a given train type. After speaking with the sbb staff they have this info but it's not public yet so it will work with extra info from SBB.
