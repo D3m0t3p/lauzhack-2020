@@ -11,8 +11,7 @@ We started from the principle that we can know the exact position of every door 
 #### Train detection without ML
 Details of implementation and position estimation from this image in the jupyter notebook 'Train and rail detection'.
 
-<img title="Image difference" alt="Image difference" src="/images/Intermediary\ steps/image_difference.png">
-
+![im1](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/Intermediary%20steps/image_difference.png?raw=true)
 
 ## Advantages
 Thanks to this solution we can also guide precisely the person to the right car, corresponding to the ticket he/she bought (first/second class). This can also be used for trains with assigned cars and seats so our solution is very modular and can solve other problems too. It will also be easier to use this since the person won’t have to hold the phone in his/her hands to scan in front of him/her and try to find the door, with a cane and/or a guide dog in the other hand. The phone could simply be in the person’s pocket and the speaker would guide him/her. Moreover, holding the camera in the person's hand will be less efficient since many people can be waiting for the same train, and the person could not be able to scan the button since everyone would be blocking the view and the algorithm.
