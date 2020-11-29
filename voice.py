@@ -1,8 +1,12 @@
+#Application to guide a user to his/her train door
+#Need to know the original position, list of doors with their positions (coordinates), the direction of the user (angle to the train) and wagon he/she is going to.
+
 from gtts import gTTS 
 import os
 import random as rn
 import time
 
+#function to have a voice speak the sentence indi
 def speak(indi):
     text = indi
     language = 'fr'
@@ -10,11 +14,13 @@ def speak(indi):
     speech.save("indication.mp3") 
     os.system("start indication.mp3")
 
+#generation of randoms to simulate a position, a direction, and a wagon. Consider a dock with a length of 305 meters for this example
 origin = (rn.randint(25, 3000)/10, rn.randint(20, 50)/10)
 direction = rn.randint(0, 359)
 doorList = {1: (13, 0), 2: (23, 0), 3: (33, 0), 4: (43, 0),5: (53, 0),6: (63, 0),7: (73, 0),8: (83, 0),9: (93, 0),10: (103, 0),11: (113, 0),12: (123, 0),13: (133, 0),14: (143, 0),15: (153, 0),16: (163, 0)}
 wagon = rn.randint(1, 17)
 
+#at the beginning, puts the person in a direction towards the train
 def giveRightOrientation(direc):
     if(direc > 95 and direc < 265):
         speak("Faire demi-tour")
@@ -26,6 +32,7 @@ def giveRightOrientation(direc):
     elif (direc > 265 and direc < 275):
         speak("Faire un quart de tour a droite!")
 
+#conduct the person to the train and stops them when they are at the white line
 def giveDirectionToTrain(og):
     newOg = og
     while (newOg[1] > 1.2) :
@@ -39,6 +46,7 @@ def giveDirectionToTrain(og):
     speak("S'arrêter !")
     return newOg
 
+#gives the person the right direction to their door, and to follow the train along the white line
 def onceAtTrain(og, wag):
     goal = doorList[wag][0]
     if (og[0] < goal - 1):
@@ -50,6 +58,7 @@ def onceAtTrain(og, wag):
     elif (og[0] < goal + 1 and og[0] > goal - 1):
         speak("Vous êtes devant la porte ! Le bouton est à droite")
 
+#stops the person at the right door: possible to give the position of the button according to the model of train it is
 def goToDoor(og, goal, goesLeft):
     if (og[0] < goal + 1 and og[0] > goal - 1) :
         speak("Vous êtes devant la porte ! Le bouton est à droite")
@@ -76,26 +85,7 @@ def main():
     giveRightOrientation(direction)
     time.sleep(1)
     midOg = giveDirectionToTrain(origin)
-
-    print("midOg in main: ", midOg)
     onceAtTrain(midOg, wagon)
 
 if __name__ == "__main__":
     main()
-
-
-
-#todo: avoir un serveur qui envoit la liste des portes, avec leur coordonnees en meme temps (map?)
-#le client (ici) reçoit la liste et a une position originale 
-#le client a les fields suivant:
-#       - direction originale x
-#       - position (x, y) originale x
-#       - liste des coordonnees de portes qu'il va recevoir
-
-#protocole:
-# recevoir la liste de porte et leurs coordonnees
-# calculer la porte la plus proche, update toutes les minutes par ex
-# en fonction de la direction de la personne, la mettre face au train
-# emmener la personne vers la bande blanche du train
-# faire tourner a droite ou a gauche et longer le train
-#
