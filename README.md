@@ -17,6 +17,15 @@ Details of implementation and position estimation from this image in the jupyter
 
 ![steps](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/steps.png)
 
+#### SBB API query
+Details of implementation and http query can be found in the sbb_api_query_next_train.py file.
+The POC is as follow, we find the next departing train in lausanne gare, and we identify the train type unfortunately the api doesn't give the plans for a given train type. After speaking with the sbb staff they have this info but it's not public yet so it will work with extra info from SBB.
+exemple output : 
+```code
+Passanger is taking his train in lausanne, going to Allaman. The S4 24438 of model S. 
+Train will stop on the platform 5 and his position in relation to the platform is 1.77
+Having a S class train, doors are at positions a, b, and c of the ram
+```
 ## Advantages
 Thanks to this solution we can also guide precisely the person to the right car, corresponding to the ticket he/she bought (first/second class). This can also be used for trains with assigned cars and seats so our solution is very modular and can solve other problems too. It will also be easier to use this since the person won’t have to hold the phone in his/her hands to scan in front of him/her and try to find the door, with a cane and/or a guide dog in the other hand. The phone could simply be in the person’s pocket and the speaker would guide him/her. Moreover, holding the camera in the person's hand will be less efficient since many people can be waiting for the same train, and the person could not be able to scan the button since everyone would be blocking the view and the algorithm.
 
