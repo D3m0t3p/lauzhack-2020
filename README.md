@@ -9,6 +9,7 @@ We chose the challenge proposed by SBB, consisting of helping blind people to fi
 We started from the principle that we can know the exact position of every door on a train if we know the model of the train and its exact position on the platform. The first part can easily be retrieved thanks to the SBB API and documentation. For its position relative to the platform it is a bit more difficult (since we know that the train driver doesn’t have a very precise spot to stop on the platform), and we came up with two ideas. First, we chose to use computer vision (thanks to security cameras / a dedicated camera per platform) to detect the train and find its exact location. The second solution implies Bluetooth beacons placed on the platform (which is possible after talking with SBB sponsors). We would place a beacon also on the train (at the beginning or the end of the train)(making sure it’s “outside” as the train acts as a Faraday cage, the electromagnetic waves would be trapped inside otherwise) and will be able to triangulate the beacon, and since it would be placed on a fixed point on the train we would immediately have the exact location of the train. The next step is now to locate the user on the platform. We will now use the same Bluetooth beacons placed at equal distances on the platform to triangulate the person. Using this technology it is also possible to find the direction the phone is pointing by analyzing the angle of arrival of the signal so it will greatly help us guiding the person to the door, hence to the door button. To guide the person to the door button, we will simply use Text-to-Speech APIs, which will allow us to vocalize the instructions to the person, and which is compatible with both iOS and Android.
 
 #### Modules
+-------------------
 We split the project into different modules as can be seen in the following diagram.
 ![diagram](https://github.com/D3m0t3p/lauzhack-2020/blob/main/Project%20architecture/Project%20architecture.jpg)
 
@@ -16,6 +17,13 @@ We split the project into different modules as can be seen in the following diag
 Details of implementation and position estimation from this image in the jupyter notebook 'Train and rail detection'.
 
 ![steps](https://github.com/D3m0t3p/lauzhack-2020/blob/main/images/steps.png)
+
+
+#### Bluetooth triangulation
+Bluetooth triangulation explained : https://www.inpact-hardware.com/article/1087/bluetooth-5-1-radiogoniometrie-pour-mesurer-direction-signal-et-ameliorer-geolocalisation.
+
+Moreover, since Covid-19, this technology evolved a lot and thanks to triangulation and trilateration we can estimate with centimeter precision the position of a device. However we couldn't get our hands on specified hardware, but after talking with SBB staff we were told that Bluetooth beacons were maybe going to be placed on the platforms soon. Since the beacons are emitting (same concept as GPS), the beacons won't have information about the user's location since the calculations will be made on the user's device. This is more privacy-friendly, with respect to the rest of our solution.
+
 
 #### SBB API query
 Details of implementation and HTTP query can be found in the sbb_api_query_next_train.py file.
